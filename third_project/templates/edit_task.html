@@ -1,0 +1,49 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Task</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+    <div class="navbar">
+        <h2>Task Manager</h2>
+        <a href="{% url 'show_task' %}">My Tasks</a>
+    </div>
+
+    <div class="add-container">
+        <div class="add-card">
+            <h1>Edit Task</h1>
+            <p class="subtitle">Update your task information.</p>
+
+            <form method="POST">
+                {% csrf_token %}
+
+                <label>Task Title</label>
+                <input type="text" name="title" value="{{ task.title }}" required>
+
+                <label>Description</label>
+                <textarea name="description" required>{{ task.description }}</textarea>
+
+                <label>Due Date</label>
+                <input type="date" name="due_date" value="{{ task.due_date|date:'Y-m-d' }}" required>
+
+                <label>Priority</label>
+                <select name="priority">
+                    <option value="Low" {% if task.priority == 'Low' %}selected{% endif %}>Low</option>
+                    <option value="Medium" {% if task.priority == 'Medium' %}selected{% endif %}>Medium</option>
+                    <option value="High" {% if task.priority == 'High' %}selected{% endif %}>High</option>
+                </select>
+
+                <button type="submit" class="save-btn">Save Changes</button>
+                <a href="{% url 'show_task' %}" class="back-btn">Back to My Tasks</a>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

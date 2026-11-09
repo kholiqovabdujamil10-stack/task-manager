@@ -1,0 +1,298 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f3ff;
+}
+
+.navbar {
+    background: white;
+    padding: 20px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+}
+
+.navbar h2 {
+    color: #6258e8;
+    font-size: 25px;
+}
+
+.navbar a {
+    color: #6258e8;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.home-container {
+    min-height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background:
+        linear-gradient(rgba(35, 25, 90, 0.65), rgba(35, 25, 90, 0.65)),
+        url("https://images.unsplash.com/photo-1497366754035-f200968a6e72");
+    background-size: cover;
+    background-position: center;
+}
+
+.content {
+    color: white;
+    max-width: 750px;
+    padding: 30px;
+}
+
+.content h1 {
+    font-size: 45px;
+    margin-bottom: 20px;
+}
+
+.content p {
+    font-size: 18px;
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-block;
+    background: #6258e8;
+    color: white;
+    padding: 14px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.btn:hover {
+    background: #4940c4;
+    transform: translateY(-3px);
+}
+
+.btn-light {
+    background: white;
+    color: #6258e8;
+}
+
+.btn-light:hover {
+    background: #eeeeff;
+}
+
+.tasks-container {
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.tasks-container h1 {
+    font-size: 38px;
+    color: #6258e8;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    color: #888;
+    margin-bottom: 30px;
+}
+
+.task-list {
+    margin-top: 35px;
+}
+
+.task-card {
+    background: white;
+    padding: 25px;
+    margin-bottom: 20px;
+    border-radius: 15px;
+    text-align: left;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+    transition: 0.3s;
+}
+
+.task-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+}
+
+.task-card h2 {
+    color: #6258e8;
+    margin-bottom: 15px;
+}
+
+.task-card p {
+    color: #666;
+    margin: 12px 0;
+}
+
+.completed {
+    display: inline-block;
+    background: #d8f8e5;
+    color: #168448;
+    padding: 7px 15px;
+    border-radius: 20px;
+    margin-top: 10px;
+}
+
+.pending {
+    display: inline-block;
+    background: #fff0d5;
+    color: #bd7800;
+    padding: 7px 15px;
+    border-radius: 20px;
+    margin-top: 10px;
+}
+
+.task-buttons {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.task-buttons a {
+    display: inline-block;
+    padding: 10px 22px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: bold;
+    transition: 0.3s;
+    float: none;
+}
+
+.task-buttons .edit-btn {
+    background: #6258e8;
+    color: white;
+}
+
+.task-buttons .edit-btn:hover {
+    background: #4940c4;
+}
+
+.task-buttons .delete-btn {
+    background: #ffe5e5;
+    color: #d93636;
+}
+
+.task-buttons .delete-btn:hover {
+    background: #ffd0d0;
+}
+
+.empty {
+    background: white;
+    padding: 50px 20px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+}
+
+.empty h2 {
+    color: #6258e8;
+    margin-bottom: 15px;
+}
+
+.empty p {
+    color: #888;
+}
+
+.add-container {
+    min-height: 85vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 15px;
+}
+
+.add-card {
+    background: white;
+    width: 100%;
+    max-width: 500px;
+    padding: 35px;
+    border-radius: 18px;
+    box-shadow: 0 8px 30px rgba(80, 65, 180, 0.12);
+}
+
+.add-card h1 {
+    text-align: center;
+    color: #6258e8;
+    margin-bottom: 10px;
+}
+
+.add-card .subtitle {
+    text-align: center;
+    color: #888;
+    margin-bottom: 30px;
+}
+
+.add-card label {
+    display: block;
+    margin-top: 18px;
+    margin-bottom: 8px;
+    color: #444;
+    font-weight: bold;
+}
+
+.add-card input,
+.add-card textarea,
+.add-card select {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 15px;
+    outline: none;
+    background: #fafaff;
+}
+
+.add-card input:focus,
+.add-card textarea:focus,
+.add-card select:focus {
+    border-color: #6258e8;
+}
+
+.add-card textarea {
+    height: 110px;
+    resize: vertical;
+}
+
+.save-btn {
+    width: 100%;
+    margin-top: 25px;
+    padding: 14px;
+    background: #6258e8;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.save-btn:hover {
+    background: #4940c4;
+}
+
+.back-btn {
+    display: block;
+    text-align: center;
+    margin-top: 18px;
+    color: #6258e8;
+    text-decoration: none;
+}
+
+.back-btn:hover {
+    text-decoration: underline;
+}

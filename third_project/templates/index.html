@@ -1,0 +1,38 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+    <div class="navbar">
+        <h2>Task Manager</h2>
+        <a href="{% url 'show_task' %}">My Tasks</a>
+    </div>
+
+    <div class="home-container">
+        <div class="content">
+            <h1>Welcome to Task Manager</h1>
+            <p>
+                Organize your daily tasks.
+                Manage your time and complete your goals.
+            </p>
+
+            <div class="buttons">
+                <a href="{% url 'add_task' %}" class="btn">
+                    Add New Task
+                </a>
+                <a href="{% url 'show_task' %}" class="btn btn-light">
+                    View My Tasks
+                </a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

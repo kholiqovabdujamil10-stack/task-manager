@@ -1,0 +1,56 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Tasks</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+    <div class="navbar">
+        <h2>Task Manager</h2>
+        <a href="{% url 'home' %}">Home</a>
+    </div>
+
+    <div class="tasks-container">
+        <h1>My Tasks</h1>
+        <p class="subtitle">Manage your daily tasks easily</p>
+
+        <a href="{% url 'add_task' %}" class="btn">+ Add New Task</a>
+
+        <div class="task-list">
+            {% for t in task %}
+                <div class="task-card">
+                    <h2>{{ t.title }}</h2>
+                    <p>{{ t.description }}</p>
+                    <p><b>Due Date:</b> {{ t.due_date }}</p>
+                    <p><b>Priority:</b> {{ t.priority }}</p>
+
+                    {% if t.status %}
+                        <span class="completed">Completed</span>
+                    {% else %}
+                        <span class="pending">Not Completed</span>
+                        <a href="{% url 'complete_task' t.id %}" class="btn">
+                            Complete
+                        </a>
+                    {% endif %}
+
+                    <div class="task-buttons">
+                        <a href="{% url 'edit_task' t.id %}" class="edit-btn">Edit</a>
+                        <a href="{% url 'delete_task' t.id %}" class="delete-btn">Delete</a>
+                    </div>
+                </div>
+            {% empty %}
+                <div class="empty">
+                    <h2>No Tasks Yet!</h2>
+                    <p>Add your first task and start organizing your day.</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+</body>
+</html>

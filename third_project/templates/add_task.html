@@ -1,0 +1,49 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Task</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+    <div class="navbar">
+        <h2>Task Manager</h2>
+        <a href="{% url 'show_task' %}">My Tasks</a>
+    </div>
+
+    <div class="add-container">
+        <div class="add-card">
+            <h1>Add New Task</h1>
+            <p class="subtitle">Create a new task and organize your day.</p>
+
+            <form method="POST">
+                {% csrf_token %}
+
+                <label>Task Title</label>
+                <input type="text" name="title" placeholder="Enter task title" required>
+
+                <label>Description</label>
+                <textarea name="description" placeholder="Enter task description" required></textarea>
+
+                <label>Due Date</label>
+                <input type="date" name="due_date" required>
+
+                <label>Priority</label>
+                <select name="priority">
+                    <option value="Low">Low</option>
+                    <option value="Medium" selected>Medium</option>
+                    <option value="High">High</option>
+                </select>
+
+                <button type="submit" class="save-btn">Save Task</button>
+                <a href="{% url 'show_task' %}" class="back-btn">Back to My Tasks</a>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
